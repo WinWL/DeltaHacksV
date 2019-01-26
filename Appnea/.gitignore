@@ -4,6 +4,8 @@ npm-debug.log
 *.js.map
 app/**/*.js
 e2e/**/*.js
+item/*.js
+app/*.js
 e2e/reports/
 hooks/
 lib/
@@ -13,3 +15,4 @@ tmp/
 typings/
 report/
 test-results.xml
+src/*.js
