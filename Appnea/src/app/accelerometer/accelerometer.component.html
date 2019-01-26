@@ -1,1 +1,5 @@
-<Button text="accelerometer works!" class="btn btn-primary"></Button>
+<Button [text]="this.display" class="btn btn-primary"></Button>
+
+<Label textWrap="true" [text]="this.xCoor" class="h2 description-label"></Label>
+<Label textWrap="true" [text]="this.yCoor" class="h2 description-label"></Label>
+<Label textWrap="true" [text]="this.zCoor" class="h2 description-label"></Label>
