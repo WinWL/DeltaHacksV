@@ -5,8 +5,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
-import { MicImplCompComponent } from './microphone-mod/mic-impl-comp/mic-impl-comp.component';
 import { MicImplComponent } from './mic-impl/mic-impl.component';
+import { AccelerometerComponent } from './accelerometer/accelerometer.component';
+import { AccelViewComponent } from "./accelerometer/accel-view/accel-view.component";
+import { AccelDataComponent } from "./accelerometer/accel-data/accel-data.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -26,8 +28,10 @@ import { MicImplComponent } from './mic-impl/mic-impl.component';
         AppComponent,
         ItemsComponent,
         ItemDetailComponent,
-        MicImplCompComponent,
-        MicImplComponent
+        MicImplComponent,
+        AccelerometerComponent,
+        AccelViewComponent,
+        AccelDataComponent
     ],
     providers: [],
     schemas: [
