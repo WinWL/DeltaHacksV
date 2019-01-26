@@ -9,6 +9,7 @@ import { MicImplComponent } from './mic-impl/mic-impl.component';
 import { AccelerometerComponent } from './accelerometer/accelerometer.component';
 import { AccelViewComponent } from "./accelerometer/accel-view/accel-view.component";
 import { AccelDataComponent } from "./accelerometer/accel-data/accel-data.component";
+import { StartComponent } from './start/start.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -31,7 +32,8 @@ import { AccelDataComponent } from "./accelerometer/accel-data/accel-data.compon
         MicImplComponent,
         AccelerometerComponent,
         AccelViewComponent,
-        AccelDataComponent
+        AccelDataComponent,
+        StartComponent
     ],
     providers: [],
     schemas: [
