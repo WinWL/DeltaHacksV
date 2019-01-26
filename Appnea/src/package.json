@@ -2,5 +2,8 @@
     "main": "main.js",
     "android": {
         "v8Flags": "--expose_gc"
+    },
+    "dependencies": {
+        "express": "^4.16.4"
     }
 }
