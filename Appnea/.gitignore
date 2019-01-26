@@ -15,4 +15,5 @@ tmp/
 typings/
 report/
 test-results.xml
-src/*.js
+
+src/**/*.js
