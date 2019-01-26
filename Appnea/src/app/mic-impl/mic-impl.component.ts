@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TNSRecorder } from 'nativescript-audio';
+import * as application from "tns-core-modules/application";
 
 @Component({
   selector: 'ns-mic-impl',
@@ -12,8 +13,7 @@ export class MicImplComponent implements OnInit {
 	private __recorder: TNSRecorder;
 
 	constructor() {
-
-		isAndroid = false;
+		var isAndroid = false;
 
 		// check platform
 		if (application.android) { 
@@ -28,14 +28,14 @@ export class MicImplComponent implements OnInit {
 	  	this.__recorder.debug = true; // set true to enable TNSRecorder console logs for debugging
 
 	  	// need explicit permission from user to allow recording
-	  	if isAndroid
+	  	if (isAndroid)
 	  	{
 	  		// ask for recording permission until granted
 	  		while (!this.__recorder.hasRecordPermission())
 	  		{
 	  			this.__recorder.requestRecordPermission();
 
-	  			if this.__recorder.hasRecordPermission()
+	  			if (this.__recorder.hasRecordPermission())
 	  			{
 	  				console.log("You gave us permission to record.");
 		  		}
@@ -46,7 +46,7 @@ export class MicImplComponent implements OnInit {
 	  		}
 	  	}
 
-	  	this.__recorder.start();
+	  	//this.__recorder.start();
 	  	
   }
 
