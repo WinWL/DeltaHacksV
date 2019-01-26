@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as accelerometer from 'nativescript-accelerometer'; // Requiring the plugin module 
 import { XYZData } from './acceleromterClasses';
+import { Observable, observable } from 'rxjs';
 
 @Component({
   selector: 'ns-accelerometer',
@@ -12,37 +13,46 @@ export class AccelerometerComponent implements OnInit {
 
   display: string;
 
-  xCoordinate: number;
-  yCoordinate: number;
-  zCoordinate: number;
-  xyzAccelerometer: XYZData[] = [];
-
-
+  xCoordinate: number = 5;
+  yCoordinate: number = 6;  
+  zCoordinate: number = 7;
+  xyzAccelerometer: XYZData[];
   sensorDelay = 'ui';
+  obs = new Observable();
 
   constructor() { }
 
   ngOnInit() {
 
+    let xyzaccelerometer = [];
+    this.xyzAccelerometer = xyzaccelerometer;
 
-    accelerometer.startAccelerometerUpdates(function(data) {
-      console.log("x: " + data.x + "y: " + data.y + "z: " + data.z);
-
-      this.xCoordinate = data.x;
-      this.yCoordinate = data.y;
-      this.zCoordinate = data.z;
-
-      let xyz = new XYZData();
-        xyz.x = this.xCoordinate;
-        xyz.y = this.yCoordinate;
-        xyz.z = this.zCoordinate;
-
-      this.xyzAccelerometer.push(xyz)
-
-  }, { sensorDelay: "ui" });
-
+    accelerometer.startAccelerometerUpdates( function(data) 
+      {
+          // this.xyzAccelerometer.push(data)
+          console.log(" x: " + data.x + " y: " + data.y + " z: " + data.z);
+          let xyzPoint = new XYZData();
+            xyzPoint.x = data.x;
+            xyzPoint.y = data.y;
+            xyzPoint.z = data.z;
+            xyzaccelerometer.push(xyzPoint);
+        }, 
+      { sensorDelay: "ui" });
     this.display = 'Hello world'; 
-
   }
+
+  updateData(data: XYZData){
+    if (this.xyzAccelerometer !== null) {
+      this.xyzAccelerometer.push(data);
+    }
+  }
+
+  onButtonTap(){
+    console.log('hello world')
+    console.log(this.xyzAccelerometer);
+    //console.log(this.xyzAccelerometer[this.xyzAccelerometer.length - 1])
+  }
+
+
 
 }

@@ -1,9 +1,19 @@
 
+<Label class="h3 p-15 m-15 text-left">
+    <FormattedString>
+        <Span text="Words " color="#006600" ></Span>
+        <Span text="with " color="#990000" fontAttributes="Bold"></Span>
+        <Span text="different " color="#ffcc00"></Span>
+        <Span text="color."></Span>
+    </FormattedString>
+</Label>
 
-<Button [text]="this.display"></Button>
-Hello world
+<Label class="text-left">
+    <FormattedString>
+        <Span text="color."></Span>
+        <Span text="{{this.display}}" color="#006600" ></Span>
+        <Span text="{{this.xCoordinate}}" color="#006600" ></Span>
+    </FormattedString>
+</Label>
 
-
-<Label textWrap="true" [text]="this.xCoordinate" class="h2 description-label"></Label>
-<Label textWrap="true" [text]="this.yCoordinate" class="h2 description-label"></Label>
-<Label textWrap="true" [text]="this.zCoordinate" class="h2 description-label"></Label>
+<Button class="btn btn-primary btn-active" id="button" text="Tap me!" (tap)="onButtonTap()"></Button>
