@@ -26,40 +26,48 @@ export class SaveFileComponent {
 
   public onCreateFile() { 
     console.log("ENTERED");
-    // create folders, files, and file content
-      let documents = knownFolders.documents();
+    
+    // gets the Documents folder available for the current application
+    // folder is private for the application and not accessible from Users/External apps
+    let documents = knownFolders.documents();
 
-      console.log(knownFolders.currentApp() + "is the known folders");
-      console.log(knownFolders.documents() + "is the known folders");
-      console.log(knownFolders.temp() + "is the known folders");
+    console.log((knownFolders.currentApp()) + "is the known folders");
+    console.log(knownFolders.documents() + "is the known folders");
+    console.log(knownFolders.temp() + "is the known folders");
 
-      this.folder = documents.getFolder(this.folderName || "testFolder");
-      this.file = this.folder.getFile((this.fileName || "testFile") + ".txt");
+    // creates a Folder entity with the specified name within this Folder
+    this.folder = documents.getFolder(this.folderName || "testFolder");
 
-      console.log("REACH?");
+    // creates a File entity with the specified name within ^ Folder
+    this.file = this.folder.getFile((this.fileName || "testFile") + ".txt");
 
-      this.file.writeText(this.fileTextContent || "some random content")
-          .then(result => {
-              this.file.readText()
-                  .then(res => {
-                    console.log("INSIDE");
-                      this.successMessage = "Successfully saved in " + this.file.path;
-                      this.writtenContent = res;
-                      this.isItemVisible = true;
-                  });
-          }).catch(err => {
-              console.log(err);
-          });
+    console.log("REACH?");
 
-      console.log("DONE");
+    // writes the provided string to the file
+    this.file.writeText(this.fileTextContent || "some random content")
+        .then(result => {
+            this.file.readText()
+                .then(res => {
+                  console.log("INSIDE");
+                 
+                  this.successMessage = "Successfully saved in " + this.file.path;
+                  this.writtenContent = res;
+                  this.isItemVisible = true;
+                  
+                });
+        }).catch(err => {
+            console.log(err);
+    });
+
+    console.log("DONE");
 
     // check if file exists
-      this.file.readText()
-        .then(res => {
-            this.writtenContent = res;
-            console.log(this.writtenContent + "!!!!");
-        }).catch(err => {
-            console.log(err.stack);
-      });
+    this.file.readText()
+      .then(res => {
+          this.writtenContent = res;
+          console.log(this.writtenContent + "!!!!");
+      }).catch(err => {
+          console.log(err.stack);
+    });
   }
 }
