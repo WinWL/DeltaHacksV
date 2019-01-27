@@ -26,7 +26,6 @@ export class AccelerometerComponent implements OnInit {
 
     let xyzaccelerometer = [];
     this.xyzAccelerometer = xyzaccelerometer;
-
     accelerometer.startAccelerometerUpdates( function(data) 
       {
           // this.xyzAccelerometer.push(data)
@@ -53,6 +52,10 @@ export class AccelerometerComponent implements OnInit {
     //console.log(this.xyzAccelerometer[this.xyzAccelerometer.length - 1])
   }
 
+  pauseButton(){
+    accelerometer.stopAccelerometerUpdates();
+    console.log('should stop')
+  }
 
 
 }

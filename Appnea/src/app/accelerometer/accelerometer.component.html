@@ -1,5 +1,5 @@
 
-<Label class="h3 p-15 m-15 text-left">
+<!-- <Label class="h3 p-15 m-15 text-left">
     <FormattedString>
         <Span text="Words " color="#006600" ></Span>
         <Span text="with " color="#990000" fontAttributes="Bold"></Span>
@@ -14,11 +14,12 @@
         <Span text="{{this.display}}" color="#006600" ></Span>
         <Span text="{{this.xCoordinate}}" color="#006600" ></Span>
     </FormattedString>
-</Label>
+</Label> -->
 
 <!-- FIXME: determine what the link below is being used for -->
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+<p:Page navigatingTo="onNavigatingTo">
     <StackLayout verticalAlignment="middle">
-        <Button class="btn btn-primary btn-active" id="button" text="Tap me!" (tap)="onButtonTap()"></Button>
+        <b:Button class="btn btn-primary btn-active" id="button" text="Tap me!" (tap)="onButtonTap()"></b:Button>
+        <s:Button class="btn btn-primary btn-active" id="button" text="Stop me!" (tap)="pauseButton()"></s:Button>
     </StackLayout>   
-</Page>
+</p:Page>
