@@ -12,6 +12,7 @@ import { AccelDataComponent } from "./accelerometer/accel-data/accel-data.compon
 import { StartComponent } from './start/start.component';
 import { SaveFileComponent } from './save-file/save-file.component';
 import { SafeFileUsesComponent } from "./save-file/safe-file-uses/safe-file-uses.component";
+import { CommFileComponent } from './comm-file/comm-file.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -37,7 +38,8 @@ import { SafeFileUsesComponent } from "./save-file/safe-file-uses/safe-file-uses
         AccelDataComponent,
         StartComponent,
         SaveFileComponent,
-        SafeFileUsesComponent
+        SafeFileUsesComponent,
+        CommFileComponent
     ],
     providers: [],
     schemas: [

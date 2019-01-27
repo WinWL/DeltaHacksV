@@ -65,7 +65,7 @@ export class AccelerometerComponent implements OnInit {
 
   // stop collecting data and end the night
   finishCollection(){
-
+   
   }
 
 }
