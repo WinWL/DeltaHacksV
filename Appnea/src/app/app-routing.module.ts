@@ -5,10 +5,12 @@ import { Routes } from "@angular/router";
 import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
 import { AccelerometerComponent } from './accelerometer/accelerometer.component';
+import { MicImplComponent } from './mic-impl/mic-impl.component';
 
 const routes: Routes = [
-    { path: "", redirectTo: "/items", pathMatch: "full" },
+    { path: "", redirectTo: "/microphone", pathMatch: "full" },
     { path: "accelerometer", component: AccelerometerComponent },
+    { path: "microphone", component: MicImplComponent },
     { path: "items", component: ItemsComponent },
     { path: "item/:id", component: ItemDetailComponent },
 ];

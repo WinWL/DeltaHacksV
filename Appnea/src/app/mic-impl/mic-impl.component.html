@@ -1,1 +1,15 @@
-<Button text="mic-impl works!" class="btn btn-primary"></Button>
+<Label class="h3 p-15 m-15 text-left">
+        <FormattedString>
+            <Span text="Words " color="#006600" ></Span>
+            <Span text="with " color="#990000" fontAttributes="Bold"></Span>
+            <Span text="different " color="#ffcc00"></Span>
+            <Span text="color."></Span>
+        </FormattedString>
+</Label>
+
+<StackLayout>
+    <a:Button style="width: 50%; height: 20%; top: 10%" id="button" text="start!" (tap)="start()"></a:Button>
+    <b:Button style="width: 50%; height: 20%; top: 30%" id="button" text="stop" (tap)="stop()"></b:Button>
+    <c:Button style="width: 50%; height: 20%; top: 40%" id="button" text="test" (tap)="test()"></c:Button>
+</StackLayout>
+    
