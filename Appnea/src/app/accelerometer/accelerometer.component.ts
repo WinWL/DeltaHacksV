@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as accelerometer from 'nativescript-accelerometer'; // Requiring the plugin module 
 import { XYZData } from './acceleromterClasses';
 import { Observable, observable } from 'rxjs';
+import { SaveFileComponent } from './../save-file/save-file.component';
 
 @Component({
   selector: 'ns-accelerometer',
@@ -65,7 +66,20 @@ export class AccelerometerComponent implements OnInit {
 
   // stop collecting data and end the night
   finishCollection(){
-   
+    this.pauseButton();
+    let x = new SaveFileComponent();
+    x.onCreateFile();
+    // create a file from here
+  // let createdFile = new SaveFileComponent();
+  //   createdFile.fileName = "results";
+  //   createdFile.fileTextContent = "hopefully this works";
+  //   createdFile.successMessage = "it worked!";
+  //   createdFile.writtenContent = "not sure what should go here";
+  //   createdFile.isItemVisible = true; // i think
+
+    // createdFile.file = File;
+    // createdFile.folder= Folder;
+
   }
 
 }

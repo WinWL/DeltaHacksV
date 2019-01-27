@@ -20,6 +20,6 @@
     <StackLayout verticalAlignment="middle">
         <b:Button class="btn btn-primary btn-active btn-forest" id="button" text="COLLECT DATA" (tap)="onButtonTap()"></b:Button>
         <s:Button class="btn btn-primary btn-active btn-lemon" id="button" text="PAUSE" (tap)="pauseButton()"></s:Button>
-        <e:Button class="btn btn-primary btn-active btn-ruby" id="button" text="END NIGHT" (tap)="pauseButton()"></e:Button>
+        <e:Button class="btn btn-primary btn-active btn-ruby" id="button" text="END NIGHT" (tap)="finishCollection()" [nsRouterLink]="['/saveFile']"></e:Button>
     </StackLayout>   
 </p:Page>
