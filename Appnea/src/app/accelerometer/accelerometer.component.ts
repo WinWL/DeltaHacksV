@@ -63,4 +63,9 @@ export class AccelerometerComponent implements OnInit {
       { sensorDelay: "ui" });
   }
 
+  // stop collecting data and end the night
+  finishCollection(){
+
+  }
+
 }
