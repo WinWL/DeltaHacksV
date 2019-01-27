@@ -16,4 +16,9 @@
     </FormattedString>
 </Label>
 
-<Button class="btn btn-primary btn-active" id="button" text="Tap me!" (tap)="onButtonTap()"></Button>
+<!-- FIXME: determine what the link below is being used for -->
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <StackLayout verticalAlignment="middle">
+        <Button class="btn btn-primary btn-active" id="button" text="Tap me!" (tap)="onButtonTap()"></Button>
+    </StackLayout>   
+</Page>
