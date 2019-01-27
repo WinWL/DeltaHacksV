@@ -23,20 +23,11 @@ export class AccelerometerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    
     let xyzaccelerometer = [];
     this.xyzAccelerometer = xyzaccelerometer;
-    accelerometer.startAccelerometerUpdates( function(data) 
-      {
-          // this.xyzAccelerometer.push(data)
-          console.log(" x: " + data.x + " y: " + data.y + " z: " + data.z);
-          let xyzPoint = new XYZData();
-            xyzPoint.x = data.x;
-            xyzPoint.y = data.y;
-            xyzPoint.z = data.z;
-            xyzaccelerometer.push(xyzPoint);
-        }, 
-      { sensorDelay: "ui" });
+    this.collectingData(xyzaccelerometer);
+
     this.display = 'Hello world'; 
   }
 
@@ -49,6 +40,7 @@ export class AccelerometerComponent implements OnInit {
   onButtonTap(){
     console.log('hello world')
     console.log(this.xyzAccelerometer);
+    this.collectingData(this.xyzAccelerometer);
     //console.log(this.xyzAccelerometer[this.xyzAccelerometer.length - 1])
   }
 
@@ -57,5 +49,18 @@ export class AccelerometerComponent implements OnInit {
     console.log('should stop')
   }
 
+  collectingData(listOfVals){
+    accelerometer.startAccelerometerUpdates( function(data) 
+      {
+          // this.xyzAccelerometer.push(data)
+          console.log(" x: " + data.x + " y: " + data.y + " z: " + data.z);
+          let xyzPoint = new XYZData();
+            xyzPoint.x = data.x;
+            xyzPoint.y = data.y;
+            xyzPoint.z = data.z;
+            listOfVals.push(xyzPoint);
+        }, 
+      { sensorDelay: "ui" });
+  }
 
 }
