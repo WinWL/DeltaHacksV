@@ -31,7 +31,10 @@ export class MicImplComponent implements OnInit {
   make() {
     if (androidApp) {
       console.log("We are running on Android device!");
-      
+      let appContext = androidApp.context;
+
+      appContext.
+
     }
 
     const documents: Folder = knownFolders.documents();
