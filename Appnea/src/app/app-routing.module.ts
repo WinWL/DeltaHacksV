@@ -7,6 +7,7 @@ import { ItemDetailComponent } from "./item/item-detail.component";
 import { AccelerometerComponent } from './accelerometer/accelerometer.component';
 import { CommFileComponent } from './comm-file/comm-file.component';
 import { SaveFileComponent } from './save-file/save-file.component';
+import { SafeFileUsesComponent } from "./save-file/safe-file-uses/safe-file-uses.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/items", pathMatch: "full" },
@@ -14,7 +15,8 @@ const routes: Routes = [
     { path: "items", component: ItemsComponent },
     { path: "item/:id", component: ItemDetailComponent },
     { path: "commService", component: CommFileComponent },
-    { path: "saveFile", component: SaveFileComponent }
+    { path: "saveFile", component: SaveFileComponent },
+    { path: "viewFile", component: SafeFileUsesComponent }
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { Observable } from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
 import { knownFolders, Folder, File } from "tns-core-modules/file-system";
 import * as fs from "tns-core-modules/file-system";
+import { XYZData } from '../accelerometer/acceleromterClasses';
 
 @Component({
   selector: 'ns-save-file',
@@ -24,7 +25,7 @@ export class SaveFileComponent {
   public file: File;
   public folder: Folder;
 
-  public onCreateFile() { 
+  public onCreateFile(points : XYZData[]) { 
     console.log("ENTERED");
     
     // gets the Documents folder available for the current application
@@ -36,15 +37,21 @@ export class SaveFileComponent {
     console.log(knownFolders.temp() + "is the known folders");
 
     // creates a Folder entity with the specified name within this Folder
-    this.folder = documents.getFolder(this.folderName || "testFolder");
+    this.folderName = "testFolder";
+    this.folder = documents.getFolder( this.folderName );
 
     // creates a File entity with the specified name within ^ Folder
-    this.file = this.folder.getFile((this.fileName || "testFile") + ".txt");
+    this.fileName = "testFile.txt"
+    this.file = this.folder.getFile(this.fileName);
 
-    console.log("REACH?");
+    console.log("REACH?" + this.fileTextContent + ";;;;");
+
+    this.fileTextContent = JSON.stringify(points);
+
+    console.log("CHANGE?" + this.fileTextContent + ";;;;");
 
     // writes the provided string to the file
-    this.file.writeText(this.fileTextContent || "some random content")
+    this.file.writeText(this.fileTextContent)
         .then(result => {
             this.file.readText()
                 .then(res => {
@@ -65,7 +72,7 @@ export class SaveFileComponent {
     this.file.readText()
       .then(res => {
           this.writtenContent = res;
-          console.log(this.writtenContent + "!!!!");
+          console.log("!!!!" + this.writtenContent);
       }).catch(err => {
           console.log(err.stack);
     });

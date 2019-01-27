@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SaveFileComponent } from '../save-file.component';
 
 @Component({
   selector: 'ns-safe-file-uses',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SafeFileUsesComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  public fileContent : string;
+  
+  constructor() {
   }
 
+  ngOnInit() {
+
+    this.fileContent = "x.fileTextContent";
+  }
 }

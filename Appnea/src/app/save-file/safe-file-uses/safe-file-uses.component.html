@@ -1,1 +1,9 @@
-<Button text="safe-file-uses works!" class="btn btn-primary"></Button>
+<!-- <Button text="safe-file-uses works!" class="btn btn-primary"></Button> -->
+
+<Label class="text-left">
+        <FormattedString>
+            <!-- <t:Span text="color."></t:Span> -->
+            <r:Span text="{{this.fileContent}}" color="#006600" ></r:Span>
+            <w:Component inputField="{{this.fileTextContent}}"></w:Component>
+        </FormattedString>
+</Label>

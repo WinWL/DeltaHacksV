@@ -1,1 +1,6 @@
-<Button text="save-file works!" class="btn btn-primary"></Button>
+<p:Page navigatingTo="onNavigatingTo">
+    <StackLayout verticalAlignment="middle">
+        <!-- <r:Span text="{{this.successMessage}}" color="#006600" ></r:Span> -->
+        <t:Button class="btn btn-primary" text="{{this.successMessage}}" [nsRouterLink]="['/viewFile']"></t:Button>
+    </StackLayout>   
+</p:Page>

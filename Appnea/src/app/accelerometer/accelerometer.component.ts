@@ -20,6 +20,7 @@ export class AccelerometerComponent implements OnInit {
   xyzAccelerometer: XYZData[];
   sensorDelay = 'ui';
   obs = new Observable();
+  fileContent : string;
 
   constructor() { }
 
@@ -54,11 +55,13 @@ export class AccelerometerComponent implements OnInit {
     accelerometer.startAccelerometerUpdates( function(data) 
       {
           // this.xyzAccelerometer.push(data)
-          console.log(" x: " + data.x + " y: " + data.y + " z: " + data.z);
+          // console.log(" x: " + data.x + " y: " + data.y + " z: " + data.z);
+          // console.log(data.display());
           let xyzPoint = new XYZData();
             xyzPoint.x = data.x;
             xyzPoint.y = data.y;
             xyzPoint.z = data.z;
+            console.log(xyzPoint.toString());
             listOfVals.push(xyzPoint);
         }, 
       { sensorDelay: "ui" });
@@ -68,18 +71,9 @@ export class AccelerometerComponent implements OnInit {
   finishCollection(){
     this.pauseButton();
     let x = new SaveFileComponent();
-    x.onCreateFile();
-    // create a file from here
-  // let createdFile = new SaveFileComponent();
-  //   createdFile.fileName = "results";
-  //   createdFile.fileTextContent = "hopefully this works";
-  //   createdFile.successMessage = "it worked!";
-  //   createdFile.writtenContent = "not sure what should go here";
-  //   createdFile.isItemVisible = true; // i think
-
-    // createdFile.file = File;
-    // createdFile.folder= Folder;
-
+    x.onCreateFile(this.xyzAccelerometer);
+    this.fileContent = x.fileTextContent;
+    console.log("is in the file!" + x.fileTextContent);
   }
 
 }
